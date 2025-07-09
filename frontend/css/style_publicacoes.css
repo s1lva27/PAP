@@ -1,0 +1,50 @@
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.publicacao {
+    border: 1px solid #222;
+    border-radius: 14px;
+    padding: 25px;
+    margin: 25px 0;
+    background: #1e1e1e;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.publicacao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.autor-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.foto-perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+    border: 2px solid #ff7a00; /* Destaque laranja */
+}
+
+.nome-autor {
+    font-weight: 600;
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.tempo-publicacao {
+    color: #bbb;
+    font-size: 0.85em;
+    margin-top: 3px;
+}
