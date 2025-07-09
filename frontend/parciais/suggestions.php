@@ -374,9 +374,13 @@ function displaySuggestions(suggestions) {
     }
     
     const suggestionsHTML = suggestions.map((user, index) => {
-        const commonFollowersText = user.seguidores_em_comum > 0 
-            ? `<i class="fas fa-users"></i> ${user.seguidores_em_comum} em comum`
-            : `<i class="fas fa-user"></i> ${user.ocupacao}`;
+        let metaText;
+        if (user.seguidores_em_comum > 0) {
+            const plural = user.seguidores_em_comum === 1 ? '' : 's';
+            metaText = `<i class="fas fa-users"></i> ${user.seguidores_em_comum} seguidor${plural} em comum`;
+        } else {
+            metaText = `<i class="fas fa-briefcase"></i> ${user.ocupacao}`;
+        }
             
         return `
             <div class="suggestion-item" style="animation-delay: ${index * 0.1}s" onclick="goToProfile(${user.id})">
@@ -387,7 +391,7 @@ function displaySuggestions(suggestions) {
                     <h4 class="suggestion-name">${user.nome_completo}</h4>
                     <p class="suggestion-username">@${user.nick}</p>
                     <div class="suggestion-meta">
-                        ${commonFollowersText}
+                        ${metaText}
                     </div>
                 </div>
                 <button class="follow-btn" 

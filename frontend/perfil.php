@@ -171,6 +171,7 @@ $resultPublicacoes = mysqli_query($con, $sqlPublicacoes);
     <link rel="icon" type="image/x-icon" href="images/favicon/favicon_orange.png">
 
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <style>
         .friends-btn {
             background: #4CAF50 !important;
@@ -756,7 +757,6 @@ $resultPublicacoes = mysqli_query($con, $sqlPublicacoes);
 
     <!-- Include Video Player JavaScript -->
     <script src="js/video-player.js"></script>
-    <script src="js/polls.js"></script>
 
     <script>
 
@@ -1295,6 +1295,22 @@ $resultPublicacoes = mysqli_query($con, $sqlPublicacoes);
                         }
                     });
             }
+        });
+        
+        // Remover qualquer símbolo de poll que possa estar sendo adicionado incorretamente
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar se há ícones de poll sendo adicionados incorretamente
+            const postActions = document.querySelectorAll('.post-actions');
+            postActions.forEach(actions => {
+                // Remover qualquer botão de poll que não deveria estar lá
+                const pollButtons = actions.querySelectorAll('button i.fa-poll, button i.fas.fa-poll');
+                pollButtons.forEach(pollIcon => {
+                    const button = pollIcon.closest('button');
+                    if (button && !button.classList.contains('poll-toggle-btn')) {
+                        button.remove();
+                    }
+                });
+            });
         });
 
         // Mostrar toast

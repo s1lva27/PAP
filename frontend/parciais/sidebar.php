@@ -38,6 +38,7 @@ if ($currentUserId) {
     <nav>
         <ul>
             <li><a href="index.php"><i class="fas fa-home"></i> <span>Home</span></a></li>
+            <li><a href="pesquisar.php"><i class="fas fa-search"></i> <span>Pesquisar</span>
             <li><a href="perfil.php"><i class="fas fa-user"></i> <span>Perfil</span></a></li>
             <li><a href="mensagens.php"><i class="fas fa-comments"></i> <span>Mensagens</span>
                     <?php if ($totalUnread > 0): ?>
