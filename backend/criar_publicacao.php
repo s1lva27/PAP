@@ -1,6 +1,6 @@
 <?php
 
-$MAX_MEDIA = 5;
+$MAX_MEDIA = 4;
 $EXT_PERMITIDAS = ['jpg', 'jpeg', 'png', 'gif', 'mp4', 'webm', 'mov'];
 $MAX_SIZE_IMAGEM = 5 * 1024 * 1024; // 5MB
 $MAX_SIZE_VIDEO = 50 * 1024 * 1024; // 50MB

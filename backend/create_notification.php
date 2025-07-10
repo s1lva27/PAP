@@ -33,7 +33,7 @@ function createNotification($con, $userId, $remetenteId, $tipo, $publicacaoId = 
             $mensagem = $remetente['nome_completo'] . " votou na sua poll";
             break;
         case 'unfollow':
-            // Para unfollow, vamos remover a notificação de follow se existir
+            // Para unfollow remover a notificação de follow se existir
             $sqlDelete = "DELETE FROM notificacoes 
                          WHERE utilizador_id = ? AND remetente_id = ? AND tipo = 'follow'";
             $stmtDelete = $con->prepare($sqlDelete);
@@ -51,7 +51,7 @@ function createNotification($con, $userId, $remetenteId, $tipo, $publicacaoId = 
     $stmtCheck->execute();
     
     if ($stmtCheck->get_result()->num_rows > 0) {
-        return false; // Já existe notificação similar
+        return false; 
     }
     
     // Criar a notificação

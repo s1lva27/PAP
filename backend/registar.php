@@ -13,9 +13,24 @@ $date = $_POST["date"];
 $password = $_POST["password"];
 
 require "ligabd.php";
+// Adicione esta verificação antes das verificações de email e nick existentes
+if (preg_match('/\s/', $nick)) {
+    $_SESSION["erro"] = "Nome de utilizador não pode conter espaços.";
+    header("Location: ../frontend/registar.php");
+    exit();
+}
 
+// Verificação do comprimento do nick
+if (strlen($nick) < 3 || strlen($nick) > 16) {
+    $_SESSION["erro"] = "Nome de utilizador deve ter entre 3 e 16 caracteres.";
+    header("Location: ../frontend/registar.php");
+    exit();
+}
+
+// Verificações existentes de email e nick
 $sql_check_email = "SELECT * FROM utilizadores WHERE email='$email'";
 $sql_check_nick = "SELECT * FROM utilizadores WHERE nick='$nick'";
+
 
 $check_email = mysqli_query($con, $sql_check_email);
 $check_nick = mysqli_query($con, $sql_check_nick);
@@ -43,6 +58,8 @@ if (!$resultado) {
     header("Location: ../frontend/registar.php");
     exit();
 }
+
+
 
 // Buscar o utilizador recém-criado para obter o ID
 $sqlUser = "SELECT * FROM utilizadores WHERE email = '$email'";
@@ -79,7 +96,6 @@ if (!$resultado_perfil) {
     exit();
 }
 
-// FAZER LOGIN AUTOMÁTICO
 // Definir todas as variáveis de sessão necessárias
 $_SESSION["id"] = $userData["id"];
 $_SESSION["nome_completo"] = $userData["nome_completo"];
@@ -89,10 +105,10 @@ $_SESSION["nick"] = $userData["nick"];
 $_SESSION["id_tipos_utilizador"] = $userData["id_tipos_utilizador"];
 $_SESSION["data_criacao"] = $userData["data_criacao"];
 
-// Definir mensagem de sucesso
+
 $_SESSION["sucesso"] = "Conta criada com sucesso! Bem-vindo à Orange!";
 
-// Redirecionar para a página principal já logado
+
 header("Location: ../frontend/index.php");
 exit();
 ?>

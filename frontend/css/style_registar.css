@@ -75,6 +75,7 @@ h2 {
     flex: 1;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .form-row p {
@@ -237,26 +238,23 @@ input.incorreto {
 
 
 
-
-
-
-
-
-
-
-
-
 /* Estilização do ícone de informação */
 .info-icon {
     position: absolute;
-    right: 100px;
-    top: 254px;
+    right: 10px;
+    top: 30%;
     transform: translateY(-50%);
     display: flex;
     /* Para alinhar o SVG no centro */
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    z-index: 10;
+}
+
+/* Adicionar padding ao campo nick para dar espaço ao ícone */
+#nick {
+    padding-right: 45px;
 }
 
 /* Tooltip quando o usuário passa o mouse */
@@ -299,3 +297,28 @@ input.incorreto {
 }
 
 
+/* Estilo simples para checkbox laranja */
+input[type="checkbox"] {
+    accent-color: #f57c00; /* Cor laranja - ajuste o código conforme necessário */
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Style for the login link below the form */
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #e0e0e0;
+}
+
+.login-link a {
+    color: #f57c00;;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

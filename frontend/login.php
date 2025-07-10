@@ -11,7 +11,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orange - Iniciar Sessão</title>
     <link rel="stylesheet" href="css/style_login.css">
-    <link rel="icon" type="image/x-icon" href="images/favicon_orange.png">
+    <link rel="icon" type="image/x-icon" href="images/favicon/favicon_orange.png">
 </head>
 
 <body>
@@ -45,21 +45,16 @@ session_start();
 
             <button name="botaoLogin" type="submit" class="btn-primary">Iniciar Sessão</button>
 
-            <div class="divider">
-                <span>ou</span>
-            </div>
+            
 
-            <button type="button" class="btn-google">
-                <img src="https://www.zmax.work/wp-content/uploads/2021/05/x31__stroke.png" alt="Google"
-                    class="google-icon"> Iniciar Sessão com Google
-            </button>
+            
 
             <p>Não tem conta? <a href="registar.php">Crie uma agora</a></p>
         </form>
     </div>
 
     <footer>
-        &copy; 2024 ORANGE. Todos os direitos reservados.
+        &copy; 2025 ORANGE. Todos os direitos reservados.
     </footer>
 
     <script>
